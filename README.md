@@ -5,7 +5,7 @@ A Python wrapper for accessing Pollinations AI API endpoints.
 ## Installation
 
 ```bash
-pip install pollinations
+pip install pypollinations
 ```
 
 ## API documentation
