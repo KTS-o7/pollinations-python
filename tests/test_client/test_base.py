@@ -2,8 +2,8 @@ import pytest
 import httpx
 import pytest_asyncio
 from unittest.mock import Mock, patch
-from src.pollinations import APIError, PollinationsError
-from src.pollinations.client.base import BaseClient
+from src.pypollinations import APIError, PollinationsError
+from src.pypollinations.client.base import BaseClient
 
 @pytest.fixture
 def api_base():

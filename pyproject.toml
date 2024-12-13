@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pollinations-wrapper"
+name = "pypollinations"
 version = "0.1.0"
 description = "Python client for Pollinations AI API"
 authors = ["Krishnatejaswi S"]
@@ -28,12 +28,12 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-addopts = "-v --cov=src/pollinations --cov-report=term-missing"
+addopts = "-v --cov=src/pypollinations --cov-report=term-missing"
 testpaths = ["tests"]
 asyncio_mode = "strict"
 
 [tool.coverage.run]
-source = ["src/pollinations"]
+source = ["src/pypollinations"]
 omit = ["tests/*"]
 
 [tool.coverage.report]

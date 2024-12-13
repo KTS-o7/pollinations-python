@@ -1,5 +1,5 @@
 import asyncio
-from pollinations import ImageClient, ImageGenerationRequest 
+from pypollinations import ImageClient, ImageGenerationRequest 
 from PIL import Image
 from io import BytesIO
 
