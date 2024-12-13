@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pollinations"
+name = "pollinations-wrapper"
 version = "0.1.0"
 description = "Python client for Pollinations AI API"
 authors = ["Krishnatejaswi S"]
