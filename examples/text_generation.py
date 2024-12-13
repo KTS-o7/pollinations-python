@@ -1,7 +1,7 @@
 import asyncio
-from pollinations import TextClient, TextGenerationRequest
-from pollinations.models.base import Message
-from pollinations.exceptions import PollinationsError
+from pypollinations import TextClient, TextGenerationRequest
+from pypollinations.models.base import Message
+from pypollinations.exceptions import PollinationsError
 
 
 async def generate_text():

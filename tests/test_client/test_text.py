@@ -2,9 +2,9 @@ import pytest
 from unittest.mock import AsyncMock, patch, Mock
 import aiohttp
 from typing import Optional
-from src.pollinations.models.base import Message
-from src.pollinations.models.text import TextGenerationRequest, TextGenerationResponse
-from src.pollinations.client.text import TextClient
+from src.pypollinations.models.base import Message
+from src.pypollinations.models.text import TextGenerationRequest, TextGenerationResponse
+from src.pypollinations.client.text import TextClient
 
 @pytest.fixture
 async def text_client():

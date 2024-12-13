@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
-from src.pollinations.models.text import TextGenerationRequest, TextGenerationResponse
-from src.pollinations.models.base import TextModel, Message
+from src.pypollinations.models.text import TextGenerationRequest, TextGenerationResponse
+from src.pypollinations.models.base import TextModel, Message
 
 def test_text_generation_request_valid():
     messages = [Message(role="user", content="Hello")]

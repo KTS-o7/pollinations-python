@@ -1,8 +1,8 @@
 
 import pytest
 from pydantic import ValidationError
-from src.pollinations.models.image import ImageGenerationRequest, ImageResponse
-from src.pollinations.models.base import ImageModel
+from src.pypollinations.models.image import ImageGenerationRequest, ImageResponse
+from src.pypollinations.models.base import ImageModel
 
 def test_image_generation_request_defaults():
     request = ImageGenerationRequest(prompt="test prompt")

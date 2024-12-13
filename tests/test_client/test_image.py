@@ -1,6 +1,6 @@
 import pytest
-from pollinations.client.image import ImageClient
-from pollinations.models.image import ImageGenerationRequest
+from pypollinations.client.image import ImageClient
+from pypollinations.models.image import ImageGenerationRequest
 
 @pytest.mark.asyncio
 async def test_image_generation():
