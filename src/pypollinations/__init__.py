@@ -9,8 +9,8 @@ __all__ = [
     "TextClient",
     "ImageGenerationRequest",
     "ImageResponse",
-    "TextGenerationRequest", 
+    "TextGenerationRequest",
     "TextGenerationResponse",
     "PollinationsError",
-    "APIError"
+    "APIError",
 ]

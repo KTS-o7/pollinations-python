@@ -1,8 +1,8 @@
-
 import pytest
 from pydantic import ValidationError
 from src.pypollinations.models.image import ImageGenerationRequest, ImageResponse
 from src.pypollinations.models.base import ImageModel
+
 
 def test_image_generation_request_defaults():
     request = ImageGenerationRequest(prompt="test prompt")
@@ -11,10 +11,11 @@ def test_image_generation_request_defaults():
     assert request.seed is None
     assert request.width == 1024
     assert request.height == 1024
-    assert request.nologo is False
-    assert request.private is False
-    assert request.enhance is False
-    assert request.safe is False
+    assert request.nologo is True
+    assert request.private is True
+    assert request.enhance is True
+    assert request.safe is True
+
 
 def test_image_generation_request_custom():
     request = ImageGenerationRequest(
@@ -26,7 +27,7 @@ def test_image_generation_request_custom():
         nologo=True,
         private=True,
         enhance=True,
-        safe=True
+        safe=True,
     )
     assert request.prompt == "custom prompt"
     assert request.model == ImageModel.FLUX
@@ -38,12 +39,14 @@ def test_image_generation_request_custom():
     assert request.enhance is True
     assert request.safe is True
 
+
 def test_image_generation_request_validation():
     with pytest.raises(ValidationError):
         ImageGenerationRequest(prompt="test", width=32)  # width too small
-    
+
     with pytest.raises(ValidationError):
         ImageGenerationRequest(prompt="test", height=3000)  # height too large
+
 
 def test_image_response_minimal():
     response = ImageResponse(url="https://example.com/image.jpg")
@@ -51,11 +54,10 @@ def test_image_response_minimal():
     assert response.seed is None
     assert response.image_bytes is None
 
+
 def test_image_response_full():
     response = ImageResponse(
-        url="https://example.com/image.jpg",
-        seed=42,
-        image_bytes=b"fake_image_data"
+        url="https://example.com/image.jpg", seed=42, image_bytes=b"fake_image_data"
     )
     assert response.url == "https://example.com/image.jpg"
     assert response.seed == 42

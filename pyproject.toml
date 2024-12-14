@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pypollinations"
-version = "0.1.0"
+version = "0.2.0"
 description = "Python client for Pollinations AI API"
 authors = ["Krishnatejaswi S"]
 license = "Apache-2.0"

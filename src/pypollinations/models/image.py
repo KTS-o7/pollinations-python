@@ -11,16 +11,18 @@ Attributes:
 
 """
 
+
 class ImageGenerationRequest(BaseModel):
     prompt: str
     model: Optional[ImageModel] = Field(default=ImageModel.FLUX)
     seed: Optional[int] = None
     width: Optional[int] = Field(default=1024, ge=64, le=2048)
     height: Optional[int] = Field(default=1024, ge=64, le=2048)
-    nologo: Optional[bool] = False
-    private: Optional[bool] = False
-    enhance: Optional[bool] = False
-    safe: Optional[bool] = False
+    nologo: Optional[bool] = True
+    private: Optional[bool] = True
+    enhance: Optional[bool] = True
+    safe: Optional[bool] = True
+
 
 class ImageResponse(BaseModel):
     url: str

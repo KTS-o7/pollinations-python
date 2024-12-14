@@ -88,7 +88,6 @@ class ImageResponse:
         seed: int | None    # Seed used for generation
         image_bytes: bytes  # Raw image data
 ```
-
 ### Text Generation API
 
 #### TextClient
@@ -114,7 +113,8 @@ response = await client.generate(TextGenerationRequest(
                 Message(role="system", content="You are a helpful assistant"),
                 Message(role="user", content="What is AI?")
         ],
-        model="openai"
+        model="openai",
+        temperature=0.7
 ))
 ```
 
@@ -132,31 +132,31 @@ Configuration model for text generation requests.
 
 ```python
 class TextGenerationRequest:
-        messages: list[Message]  # List of conversation messages
-        model: str              # Model to use (default: "openai")
-        seed: int | None        # Optional seed for reproducible results
-        jsonMode: bool          # Return response in JSON format
+        messages: list[Message]          # List of conversation messages
+        model: str                       # Model to use (default: "openai") 
+        seed: int | None                 # Optional seed for reproducible results
+        contextual: bool                 # Enable contextual responses
+        jsonMode: bool                   # Return response in JSON format
+        system: str | None              # System message override
+        temperature: float              # Response randomness (0-1)
+        frequency_penalty: float        # Frequency penalty (0-1) 
+        presence_penalty: float         # Presence penalty (0-1)
+        top_p: float                    # Top-p sampling (0-1)
 ```
 
-#### Message
-
-Model representing a conversation message.
-
-```python
-class Message:
-        role: str      # Role ("system", "user", "assistant")
-        content: str   # Message content
-```
-
-#### TextGenerationResponse
+#### TextGenerationResponse 
 
 Response model containing the generated text.
 
 ```python
 class TextGenerationResponse:
-        content: str    # Generated text response
-        model: str      # Model used for generation
-        seed: int      # Seed used (if provided)
+        content: str                    # Generated text response
+        model: str                      # Model used for generation
+        seed: int | None               # Seed used (if provided)
+        temperature: float | None      # Temperature used
+        frequency_penalty: float | None # Frequency penalty used
+        presence_penalty: float | None # Presence penalty used  
+        top_p: float | None           # Top-p value used
 ```
 
 ## Error Handling

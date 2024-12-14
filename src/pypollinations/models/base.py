@@ -11,6 +11,7 @@ Attributes:
  
 """
 
+
 class ImageModel(str, Enum):
     FLUX = "flux"
     FLUX_REALISM = "flux-realism"
@@ -20,6 +21,7 @@ class ImageModel(str, Enum):
     ANY_DARK = "any-dark"
     FLUX_PRO = "flux-pro"
     TURBO = "turbo"
+
 
 class TextModel(str, Enum):
     OPENAI = "openai"
@@ -34,6 +36,7 @@ class TextModel(str, Enum):
     EVIL = "evil"
     QWEN_CODER = "qwen-coder"
     P1 = "p1"
+
 
 class Message(BaseModel):
     role: str

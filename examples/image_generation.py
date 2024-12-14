@@ -1,12 +1,15 @@
 import asyncio
-from pypollinations import ImageClient, ImageGenerationRequest 
+from pypollinations import ImageClient, ImageGenerationRequest
 from PIL import Image
 from io import BytesIO
 
-async def generate_image(save_image_path: str = './examples/generated_images/',image_name: str = 'image.png'):
+
+async def generate_image(
+    save_image_path: str = "./examples/generated_images/", image_name: str = "image.png"
+):
     # Initialize client
     client = ImageClient()
-    
+
     try:
         # Create request
         request = ImageGenerationRequest(
@@ -14,9 +17,9 @@ async def generate_image(save_image_path: str = './examples/generated_images/',i
             width=1024,
             height=768,
             model="flux",
-            nologo=True
+            nologo=True,
         )
-        
+
         # Generate image
         response = await client.generate(request)
         print(f"Image URL: {response.url}")
@@ -28,18 +31,17 @@ async def generate_image(save_image_path: str = './examples/generated_images/',i
             print(f"Image saved to {save_image_path}")
         except Exception as e:
             print(f"Error: {e}")
-        
-        
-        
+
         # List available models
         models = await client.list_models()
         print("\nAvailable models:")
         print("\n".join(models))
-        
+
     except Exception as e:
         print(f"Error: {e}")
     finally:
         await client.close()
+
 
 if __name__ == "__main__":
     asyncio.run(generate_image())
